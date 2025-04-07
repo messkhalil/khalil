@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> خليل تيوب - تحميل فيديوهات يوتيوب </title>
+    <meta name="description" content="قم بتحميل فيديوهات يوتيوب بجودة عالية مجاناً وبدون إعلانات">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fab fa-youtube"></i>
+                <h1>خليل داونلودر</h1>
+            </div>
+            <p class="tagline">تحميل فيديوهات يوتيوب بجودة عالية مجاناً</p>
+        </header>
+
+        <main>
+            <div class="search-container">
+                <div class="input-group">
+                    <input type="text" id="videoUrl" placeholder="ضع رابط فيديو يوتيوب هنا" dir="ltr">
+                    <button id="searchBtn"><i class="fas fa-search"></i> بحث</button>
+                </div>
+            </div>
+
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <p>جاري تحليل الفيديو...</p>
+            </div>
+
+            <div id="errorContainer" class="error-container">
+                <i class="fas fa-exclamation-circle"></i>
+                <p id="errorMessage"></p>
+            </div>
+
+            <div id="videoContainer" class="video-container">
+                <div class="video-info">
+                    <div class="thumbnail-container">
+                        <img id="thumbnail" src="" alt="صورة مصغرة">
+                        <span id="videoDuration" class="video-duration"></span>
+                    </div>
+                    <div class="info-details">
+                        <h2 id="videoTitle"></h2>
+                        <div class="meta-info">
+                            <p><i class="fas fa-user"></i> <span id="videoAuthor"></span></p>
+                            <p><i class="fas fa-eye"></i> <span id="videoViews"></span> مشاهدة</p>
+                            <p><i class="fas fa-calendar"></i> <span id="videoDate"></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="download-options">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="video">فيديو <i class="fas fa-video"></i></button>
+                        <button class="tab-btn" data-tab="audio">صوت فقط <i class="fas fa-music"></i></button>
+                    </div>
+
+                    <div class="tab-content active" id="videoTab">
+                        <h3>تحميل الفيديو</h3>
+                        <div class="format-list" id="videoFormats">
+                            <!-- سيتم ملء هذا القسم ديناميكياً -->
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="audioTab">
+                        <h3>تحميل الصوت</h3>
+                        <div class="format-list" id="audioFormats">
+                            <!-- سيتم ملء هذا القسم ديناميكياً -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="downloadProgress" class="download-progress">
+                <h3>جاري التحميل...</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p id="downloadStatus">يرجى الانتظار...</p>
+            </div>
+
+            <div class="instructions">
+                <h2>كيفية تحميل فيديوهات يوتيوب</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-link"></i></div>
+                        <div class="step-content">
+                            <h3>1. نسخ الرابط</h3>
+                            <p>انسخ رابط فيديو يوتيوب الذي تريد تحميله</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-paste"></i></div>
+                        <div class="step-content">
+                            <h3>2. لصق الرابط</h3>
+                            <p>الصق الرابط في مربع البحث أعلاه</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-search"></i></div>
+                        <div class="step-content">
+                            <h3>3. البحث</h3>
+                            <p>اضغط على زر البحث وانتظر تحليل الفيديو</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-download"></i></div>
+                        <div class="step-content">
+                            <h3>4. التحميل</h3>
+                            <p>اختر الجودة المناسبة واضغط على زر التحميل</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features">
+                <h2>مميزات التطبيق</h2>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <h3>سريع وسهل</h3>
+                        <p>تحميل سريع وبدون تعقيدات</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>آمن تماماً</h3>
+                        <p>بدون برامج ضارة أو إعلانات مزعجة</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>متوافق مع الجوال</h3>
+                        <p>يعمل على جميع الأجهزة</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>جودة عالية</h3>
+                        <p>تحميل بأعلى جودة متاحة</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>تم التطوير بواسطة <a href="#" target="_blank">خليل</a> &copy; <span id="currentYear"></span></p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
