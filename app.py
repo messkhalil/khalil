@@ -19,7 +19,6 @@ ydl_opts = {
     'quiet': False,
     'no_warnings': True,
     'extract_flat': True,
-    'outtmpl': os.path.join(TEMP_DIR, filename),
     'cookies-from-browser': True,  # استخدم هذه الطريقة إذا كنت تفضل تصدير الكوكيز مباشرة من المتصفح
 }
 
