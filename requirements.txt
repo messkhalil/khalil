@@ -1,6 +1,5 @@
 Flask
 yt_dlp
-render_template
 request
 jsonify
 send_file
