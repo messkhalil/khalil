@@ -16,10 +16,13 @@ if not os.path.exists(TEMP_DIR):
 # إعدادات yt-dlp
 ydl_opts = {
     'format': 'best',
-    'quiet': True,
+    'quiet': False,
     'no_warnings': True,
     'extract_flat': True,
+    'outtmpl': os.path.join(TEMP_DIR, filename),
+    'cookies-from-browser': True,  # استخدم هذه الطريقة إذا كنت تفضل تصدير الكوكيز مباشرة من المتصفح
 }
+
 
 def is_valid_youtube_url(url):
     """التحقق من صحة رابط يوتيوب"""
